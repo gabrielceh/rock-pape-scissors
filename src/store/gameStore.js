@@ -9,6 +9,7 @@ export const useGameStore = defineStore('gameStore', () => {
   const totalWins = ref(0);
   const totalDefeats = ref(0);
   const totalDraws = ref(0);
+  const score = ref(0);
 
   const options = ['rock', 'paper', 'scissors', 'lizard', 'spock'];
 
@@ -27,11 +28,17 @@ export const useGameStore = defineStore('gameStore', () => {
 
     gameResult.value = conditionWin[playerOpt][houseSelection.value];
 
-    gameResult.value === 'win'
-      ? totalWins.value++
-      : gameResult.value === 'draw'
-      ? totalDraws.value++
-      : totalDefeats.value++;
+    if (gameResult.value === 'win') {
+      totalWins.value++;
+      score.value++;
+    }
+
+    if (gameResult.value === 'draw') totalDraws.value++;
+
+    if (gameResult.value === 'defeat') {
+      totalDefeats.value++;
+      score.value--;
+    }
   }
 
   return {
@@ -42,5 +49,6 @@ export const useGameStore = defineStore('gameStore', () => {
     totalWins,
     totalDraws,
     totalDefeats,
+    score,
   };
 });

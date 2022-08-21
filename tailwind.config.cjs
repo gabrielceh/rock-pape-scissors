@@ -5,4 +5,7 @@ module.exports = {
     extend: {},
   },
   plugins: [],
+  backgroundImages: {
+    default: 'url("./src/assets/bg-pentagon.svg")',
+  },
 };

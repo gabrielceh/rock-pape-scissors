@@ -1,5 +1,8 @@
 <script setup>
   import {useGameStore} from './store/gameStore'
+  import PlayerSelect from './components/PlayerSelect.vue';
+  import Header from './components/Header.vue';
+import GameResult from './components/GameResult.vue';
 
   const gameStore = useGameStore()
 
@@ -12,23 +15,13 @@
 </script>
 
 <template>
- <div>
-  <h1>ROCK PAPER SCISSORS LIZARD SPOCK</h1>
-
-  <div>
-    <p>Player Option: {{gameStore.playerSelection}}</p>
-    <p>House Option: {{gameStore.houseSelection}}</p>
-    <p>Game Result: {{gameStore.gameResult}}</p>
-    <p>Total wins: {{gameStore.totalWins}}</p>
-    <p>Total draws: {{gameStore.totalDraws}}</p>
-    <p>Total defeats: {{gameStore.totalDefeats}}</p>
+ <div class="overflow-hidden py-8 bg-gradient-to-b from-[#1f3756] to-[#141539] h-screen">
+  <div class="max-w-[1366px] mx-auto">
+    <Header/>
+    <PlayerSelect v-if="!gameStore.playerSelection"/>
+    <GameResult v-if="gameStore.playerSelection"/>
   </div>
-
-  <button @click="playerSelect('paper')">Paper</button>
-  <button @click="playerSelect('scissors')">Scissors</button>
-  <button @click="playerSelect('rock')">Rock</button>
-  <button @click="playerSelect('lizard')">Lizard</button>
-  <button @click="playerSelect('spock')">Spock</button>
+  
  </div>
 </template>
 
