@@ -1,34 +1,22 @@
 <script setup>
-import {useGameStore} from '../store/gameStore'
 
 import ButtonResult from './ButtonResult.vue';
 
-  const gameStore = useGameStore()
+const {textButton, isWinner, layout} = defineProps([
+  'textButton','isWinner', 'layout'
+])
+
 
 </script>
 
 <template>
-  <div>
-    <div
-      class="flex justify-between mx-auto px-6 md:w-[70%] items-center w-full "
-    >
       <div class="relative">
-        <ButtonResult :text="gameStore.playerSelection" :isWinner="gameStore.gameResult === 'win'"/>
+        <ButtonResult :text="textButton" :isWinner="isWinner"/>
         <p  
           class="w-full absolute bottom-[-40%] md:top-[-40%] text-center font-bold my-4"
         >
-          YOU PICKED
+          {{layout}}
         </p>
       </div>
-      <div class="relative">
-        <ButtonResult :text="gameStore.houseSelection" :isWinner="gameStore.gameResult === 'defeat'"/>
-        <p  
-          class="w-full absolute bottom-[-40%] md:top-[-40%] text-center font-bold my-4"
-        >
-          THE HOUSE PICKED
-        </p>
-      </div>
-    
-    </div>
-  </div>
+
 </template>
