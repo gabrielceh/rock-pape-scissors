@@ -4,7 +4,7 @@
 
 <template>
   <section
-    class="grid grid-cols-2 justify-center gap-y-4 max-w-sm mx-auto bg-[url('src/assets/bg-pentagon.svg')] bg-no-repeat bg-center bg-[length:250px]"
+    class="grid grid-cols-2 justify-center gap-y-4 max-w-sm mx-auto bg-pentagon"
   >
     <ButtonSelect
       class="col-span-2" 
@@ -28,3 +28,12 @@
     />
   </section>
 </template>
+
+<style>
+  .bg-pentagon{
+    background: url('../assets/bg-pentagon.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 250px;
+  }
+</style>

@@ -26,13 +26,13 @@ import Stats from './components/Stats.vue';
 </script>
 
 <template>
- <div class="overflow-hidden relative py-4 bg-gradient-to-b from-[#1f3756] to-[#141539] h-screen">
+ <div class="relative py-4 bg-gradient-to-b from-[#1f3756] to-[#141539] h-screen">
   <div class="max-w-[1366px] h-full mx-auto  relative">
     <Header/>
     <PlayerSelect v-if="!gameStore.playerSelection"/>
     <GameResult v-if="gameStore.playerSelection"/>
     <div
-      class="w-full text-center mt-10 md:mt-0 md:text-right absolute bottom-0  md:right-0"
+      class="w-full text-center mt-16 md:mt-0 md:text-right absolute md:right-0"
     >
       <ButtonOutline label="RULES" @click="handleShowRules()"/>
       <ButtonOutline label="STATS" @click="handleShowStats()"/>
